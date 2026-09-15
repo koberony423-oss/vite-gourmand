@@ -1,20 +1,8 @@
-:root {
-  font-family: Arial, sans-serif;
-  color: #2c241f;
-  background: #fffaf5;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  background: #fffaf5;
-}
-
-button {
+/* Feuille de style principale : identité visuelle Vite & Gourmand (vert #3f5d3a, crème #fffaf5, brun #2c241f). */
+button,
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -130,6 +118,7 @@ h2 {
   margin-bottom: 24px;
 }
 
+.navigation a,
 .navigation button {
   padding: 10px 16px;
   border: 1px solid #d8d0c4;
@@ -141,6 +130,7 @@ h2 {
   transition: background-color 0.2s ease;
 }
 
+.navigation a:hover,
 .navigation button:hover {
   color: #2c241f;
   background: #f3eadf;
@@ -314,6 +304,7 @@ h2 {
   color: #dce9cb;
 }
 
+.footer a,
 .footer button {
   display: block;
   margin: 10px 0 0;
@@ -360,5 +351,581 @@ h2 {
 
   .recipe-card {
     min-height: auto;
+  }
+}
+/* ========================================
+   AJOUTS : NAVIGATION PAR LIENS, TITRES DE PAGE
+   ======================================== */
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation a[aria-current='page'] {
+  border-color: #dce9cb;
+  color: #fffaf5;
+  background: #2f4a2c;
+}
+
+.nav-bonjour {
+  padding: 10px 4px;
+  color: #fffaf5;
+  font-weight: 700;
+}
+
+.header-compact {
+  margin-bottom: 0;
+}
+
+.page-title {
+  margin-bottom: 20px;
+  color: #2c241f;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+main:focus {
+  outline: none;
+}
+
+a {
+  color: #3f5d3a;
+}
+
+.tip-button {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.tip-button:disabled,
+.tip-button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.tip-button-secondaire {
+  color: #2c241f;
+  background-color: #f3eadf;
+  border: 1px solid #d8d0c4;
+}
+
+.tip-button-secondaire:hover {
+  background-color: #eaded3;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.filter-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.filter-button.danger {
+  border-color: #8b1e3f;
+  color: #8b1e3f;
+}
+
+.filter-button.danger:hover {
+  color: #fffaf5;
+  background: #8b1e3f;
+}
+
+/* ========================================
+   FORMULAIRES
+   ======================================== */
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.champ label,
+legend {
+  color: #2c241f;
+  font-weight: 700;
+}
+
+.champ input,
+.champ select,
+.champ textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #b9ae9f;
+  border-radius: 10px;
+  color: #2c241f;
+  background: #ffffff;
+}
+
+.champ input:read-only {
+  background: #f3eadf;
+}
+
+.champ-inline {
+  max-width: 320px;
+}
+
+.aide {
+  color: #5a5049;
+  font-size: 0.9rem;
+}
+
+.grille-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0 20px;
+}
+
+.formulaire-page form {
+  max-width: 640px;
+}
+
+.liens-secondaires {
+  margin-top: 20px;
+}
+
+fieldset {
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid #eaded3;
+  border-radius: 12px;
+}
+
+.cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.case,
+.note-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.groupe-plats {
+  margin-bottom: 12px;
+}
+
+.groupe-plats .eyebrow {
+  margin-bottom: 6px;
+}
+
+/* ========================================
+   ALERTES ET BADGES
+   ======================================== */
+
+.alert {
+  margin: 12px 0;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  line-height: 1.5;
+}
+
+.alert-success {
+  border-color: #476b3c;
+  color: #1f3a1c;
+  background: #e7f0df;
+}
+
+.alert-error {
+  border-color: #8b1e3f;
+  color: #5d1129;
+  background: #f9e6ec;
+}
+
+.alert-info {
+  border-color: #b9ae9f;
+  color: #2c241f;
+  background: #f3eadf;
+}
+
+.statut-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #2c241f;
+  background: #f3eadf;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.statut-en_attente {
+  background: #fbe8c9;
+  color: #6b3d00;
+}
+
+.statut-accepte,
+.statut-en_preparation {
+  background: #dce9cb;
+  color: #1f3a1c;
+}
+
+.statut-en_cours_de_livraison,
+.statut-livre {
+  background: #d9e6f5;
+  color: #1a3a5c;
+}
+
+.statut-en_attente_du_retour_de_materiel {
+  background: #efe3f7;
+  color: #4a2360;
+}
+
+.statut-terminee {
+  background: #3f5d3a;
+  color: #fffaf5;
+}
+
+.statut-annulee {
+  background: #f4dede;
+  color: #7a1428;
+}
+
+.badge-rupture {
+  display: inline-block;
+  margin: 0 0 12px 8px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #fffaf5;
+  background: #8b1e3f;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ========================================
+   FILTRES AVANCÉS ET RÉSULTATS
+   ======================================== */
+
+.filtres-avances {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 16px;
+  align-items: end;
+  padding: 16px;
+  border: 1px solid #eaded3;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.filtres-avances .champ {
+  margin-bottom: 0;
+}
+
+.resultats {
+  margin: 0;
+  color: #4a403a;
+  font-weight: 700;
+}
+
+.recipe-card .tip-button {
+  margin-top: 0.5rem;
+}
+
+/* ========================================
+   DÉTAIL DU MENU
+   ======================================== */
+
+.galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.galerie img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.galerie-vide {
+  display: grid;
+  place-items: center;
+  height: 180px;
+  border-radius: 14px;
+  color: #fffaf5;
+  background: linear-gradient(135deg, #3f5d3a, #8b1e3f);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.infos-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.composition h3 {
+  margin: 12px 0 6px;
+  color: #3f5d3a;
+}
+
+.allergenes {
+  color: #7a3e00;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   COMMANDE
+   ======================================== */
+
+.commande-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.apercu-prix {
+  align-self: start;
+  padding: 20px;
+  border-radius: 14px;
+  background: #e7f0df;
+}
+
+.apercu-prix h2 {
+  font-size: 1.2rem;
+}
+
+.apercu-prix dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  margin: 0;
+}
+
+.apercu-prix dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+
+.apercu-prix .total {
+  padding-top: 8px;
+  border-top: 1px solid #3f5d3a;
+  font-size: 1.15rem;
+  color: #3f5d3a;
+}
+
+.liste-erreurs {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #5d1129;
+  font-size: 0.9rem;
+}
+
+/* ========================================
+   CARTES DE COMMANDE / MESSAGES / AVIS
+   ======================================== */
+
+.commandes-liste {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.commande-card {
+  padding: 20px;
+  border: 1px solid #eaded3;
+  border-radius: 14px;
+  background: #fffaf5;
+}
+
+.commande-card.traite {
+  opacity: 0.7;
+}
+
+.commande-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.commande-entete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.historique ol {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+.message-contact {
+  white-space: pre-wrap;
+}
+
+.form-avis {
+  margin-top: 12px;
+}
+
+.review-note {
+  color: #c78a00;
+  letter-spacing: 0.1em;
+}
+
+/* ========================================
+   ONGLETS, TABLEAUX, STATISTIQUES
+   ======================================== */
+
+.onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.panneau h3 {
+  margin: 24px 0 12px;
+  color: #3f5d3a;
+}
+
+.tableau-scroll {
+  overflow-x: auto;
+  margin-bottom: 16px;
+  border: 1px solid #eaded3;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eaded3;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+
+th {
+  color: #fffaf5;
+  background: #3f5d3a;
+  font-weight: 700;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.actions-cellule {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.actions-cellule select {
+  padding: 8px;
+  border: 1px solid #b9ae9f;
+  border-radius: 8px;
+}
+
+.form-annulation {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0 16px;
+  align-items: end;
+  padding: 12px;
+  border-radius: 10px;
+  background: #f9e6ec;
+}
+
+.chiffres-cles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.graphique {
+  margin: 0 0 24px;
+}
+
+.graphique figcaption {
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #2c241f;
+}
+
+.graphique-svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid #eaded3;
+  border-radius: 12px;
+}
+
+/* ========================================
+   PAGES DE TEXTE, PIED DE PAGE
+   ======================================== */
+
+.page-texte h2 {
+  margin-top: 24px;
+  font-size: 1.25rem;
+  color: #3f5d3a;
+}
+
+.footer a {
+  display: block;
+  margin: 10px 0 0;
+  font-weight: 600;
+}
+
+.footer-copyright {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: #dce9cb;
+}
+
+/* ========================================
+   RESPONSIVE COMPLÉMENTAIRE
+   ======================================== */
+
+@media (max-width: 720px) {
+  .navigation {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navigation a,
+  .navigation button {
+    text-align: center;
+  }
+
+  .nav-bonjour {
+    text-align: center;
+  }
+
+  .apercu-prix {
+    order: -1;
   }
 }
